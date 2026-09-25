@@ -12,12 +12,12 @@ cask "llmeter" do
     strategy :github_latest
   end
 
+  depends_on macos: :sonoma, arch: :arm64
+
   app "LLMeter.app"
 
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-cr", "#{appdir}/LLMeter.app"],
-                   sudo: false
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-cr", "{{appdir}}/LLMeter.app"]
   end
 
   zap trash: [
