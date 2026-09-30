@@ -1,6 +1,6 @@
 cask "llmeter" do
-  version "0.1.1"
-  sha256 "4b9ada5e9ed8ed836676c052424870fff5e1041a97d3e54ed363ee734325bb42"
+  version "0.1.2"
+  sha256 "df3d7c77c2f9bd54fff74801498e84c93aaad0b7f5c1b284129098e5c54a970f"
 
   url "https://github.com/langliu/llmeter/releases/download/v#{version}/LLMeter-macos-arm64.zip"
   name "LLMeter"
@@ -12,12 +12,12 @@ cask "llmeter" do
     strategy :github_latest
   end
 
-  depends_on macos: :sonoma, arch: :arm64
-
   app "LLMeter.app"
 
-  postflight_steps do
-    run "/usr/bin/xattr", args: ["-cr", "{{appdir}}/LLMeter.app"]
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-cr", "#{appdir}/LLMeter.app"],
+                   sudo: false
   end
 
   zap trash: [
