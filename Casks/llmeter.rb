@@ -1,6 +1,6 @@
 cask "llmeter" do
-  version "0.1.7"
-  sha256 "db2841f5902e80b8e49b4936bcfc8e9b6ca5ebf23d2bf6894af77830eba36b2e"
+  version "0.1.8"
+  sha256 "1bad04fe23f75c99836cf979669da2b4e47279a6bd860416f00ea8485afc8807"
 
   url "https://github.com/langliu/llmeter/releases/download/v#{version}/LLMeter-macos-arm64.zip"
   name "LLMeter"
